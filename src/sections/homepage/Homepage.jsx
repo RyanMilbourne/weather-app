@@ -12,7 +12,7 @@ const Homepage = () => {
       </Helmet>
       <div className="homepage-container">
         <WeatherDisplay />
-        <WeatherInput />
+        {/* <WeatherInput /> */}
       </div>
     </>
   );

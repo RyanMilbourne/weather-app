@@ -3,54 +3,52 @@ import "./WeatherInputStyles.scss";
 import { WeatherContext } from "../../hooks/weatherContext";
 import PlacesAutocomplete from "react-places-autocomplete";
 
-const WeatherInput = () => {
+const WeatherInput = ({ handleSearchToggle }) => {
   const { inputCity, handleInputChange, handleSelect, city, coordinates } =
     useContext(WeatherContext);
 
   return (
-    <>
-      <PlacesAutocomplete
-        value={inputCity}
-        onChange={handleInputChange}
-        onSelect={handleSelect}
-      >
-        {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
-          <div>
-            <input
-              {...getInputProps({
-                placeholder: "Type city name...",
-              })}
-            />
+    <div className="weather-input-container">
+      <div className="weather-input-wrapper">
+        <PlacesAutocomplete
+          value={inputCity}
+          onChange={handleInputChange}
+          onSelect={handleSelect}
+        >
+          {({
+            getInputProps,
+            suggestions,
+            getSuggestionItemProps,
+            loading,
+          }) => (
             <div className="places-suggestions-container">
-              {loading ? <div>searching...</div> : null}
-              {suggestions.map((suggestion, index) => {
-                const style = {
-                  backgroundColor: suggestion.active ? "#fafafa" : "#ffffff",
-                  cursor: "pointer",
-                };
-                return (
-                  <div
-                    className="places-suggestions-wrapper"
-                    key={index}
-                    {...getSuggestionItemProps(suggestion)}
-                  >
-                    {suggestion.description}
-                  </div>
-                );
-              })}
+              <input
+                autoFocus="true"
+                {...getInputProps({
+                  placeholder: "Type city name...",
+                })}
+              />
+              {inputCity ? (
+                <div className="places-suggestions-wrapper">
+                  {loading ? <div>searching...</div> : null}
+                  {suggestions.map((suggestion, index) => {
+                    return (
+                      <div
+                        className="places-suggestions-item"
+                        key={index}
+                        {...getSuggestionItemProps(suggestion)}
+                      >
+                        {suggestion.description}
+                      </div>
+                    );
+                  })}
+                </div>
+              ) : null}
             </div>
-          </div>
-        )}
-      </PlacesAutocomplete>
-      {/* {city && coordinates.lat && (
-        <div>
-          <h2>{city}</h2>
-          <p>
-            Coordinates: {coordinates.lat}, {coordinates.lng}
-          </p>
-        </div>
-      )} */}
-    </>
+          )}
+        </PlacesAutocomplete>
+      </div>
+    </div>
   );
 };
 

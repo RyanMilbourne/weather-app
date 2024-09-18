@@ -8,10 +8,11 @@ import PlacesAutocomplete, {
 export const WeatherContext = createContext();
 
 export const WeatherProvider = ({ children }) => {
-  const [city, setCity] = useState("Vancouver");
+  const [city, setCity] = useState("Squamish, BC, Canada");
   const [inputCity, setInputCity] = useState("");
   const [suggestions, setSuggestions] = useState([]);
   const [coordinates, setCoordinates] = useState({ lat: null, lng: null });
+  const [search, setSearch] = useState(false);
 
   const apiKey = import.meta.env.VITE_WEATHER_API_KEY;
 
@@ -26,6 +27,10 @@ export const WeatherProvider = ({ children }) => {
     }
   };
 
+  const handleSearchToggle = () => {
+    setSearch((prev) => !prev);
+  };
+
   const handleSelect = async (value) => {
     try {
       const results = await geocodeByAddress(value);
@@ -34,6 +39,9 @@ export const WeatherProvider = ({ children }) => {
       setCoordinates(latlng);
 
       const weatherData = await fetchWeatherData(latlng.lat, latlng.lng);
+      handleSearchToggle(false);
+      setInputCity(null);
+
       console.log("This is weatherData: ", weatherData);
     } catch (error) {
       console.error("Error fetching coordinates: ", error);
@@ -54,6 +62,8 @@ export const WeatherProvider = ({ children }) => {
         coordinates,
         handleInputChange,
         handleSelect,
+        search,
+        handleSearchToggle,
       }}
     >
       {children}

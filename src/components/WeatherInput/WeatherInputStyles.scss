@@ -1,9 +1,68 @@
 @import "@/assets/variables.scss";
 
+.weather-input-container {
+  position: absolute;
+  top: 1rem;
+  right: 0;
+  width: 100%;
+  // height: calc(50% - 2rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 9;
+}
+
+.weather-input-wrapper {
+  // background-color: hsla(0, 0%, 100%, 0.05);
+  background-color: rgba(55, 53, 64, 0.5);
+  backdrop-filter: blur(6px);
+  padding: 10px;
+  width: 90%;
+  height: 100%;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: $shadow-v1;
+}
+
 .places-suggestions-container {
-  background-color: purple;
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .places-suggestions-wrapper {
-  border: 1px solid blue;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.places-suggestions-item {
+  background-color: rgba(37, 34, 51, 0.75);
+  backdrop-filter: blur(10px);
+  padding: 10px 18px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  box-shadow: $shadow-v2;
+  font-weight: 100;
+}
+
+.places-suggestions-item:hover {
+  background-color: $dark;
+}
+
+input {
+  background-color: $light;
+  box-sizing: border-box;
+  border: none;
+  padding: 9px 20px;
+  border-radius: 50px;
+  width: calc(100% - 2.75rem);
+  box-shadow: $shadow-v2;
+  color: $dark;
 }
