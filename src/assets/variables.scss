@@ -1,7 +1,7 @@
 // basic body
 $main-background-color: rgb(255, 255, 255);
-$main-font-family: "Space Grotesk", sans-serif;
-$secondary-font-family: "Poiret One", sans-serif;
+$main-font-family: "Raleway", sans-serif;
+$secondary-font-family: "Aleo", serif;
 $main-text-color: rgb(0, 0, 0);
 $main-font-size: 1rem;
 
@@ -9,7 +9,8 @@ $main-font-size: 1rem;
 $nav-height: 60px;
 
 // colors
-$dark: #252233;
+// $dark: #252233;
+$dark: rgba(18, 17, 24, 1);
 $light: whitesmoke;
 
 // box shadows
@@ -50,10 +51,12 @@ $shadow-v2: 0px 2.3px 2.8px 0px rgba(0, 0, 0, 0.027),
 @keyframes slideIn {
   from {
     opacity: 0;
+    filter: blur(2px);
     transform: translateX(50px);
   }
   to {
     opacity: 1;
+    filter: blur(0px);
     transform: translateX(0);
   }
 }

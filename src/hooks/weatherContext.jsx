@@ -41,8 +41,6 @@ export const WeatherProvider = ({ children }) => {
       const weatherData = await fetchWeatherData(latlng.lat, latlng.lng);
       handleSearchToggle(false);
       setInputCity(null);
-
-      console.log("This is weatherData: ", weatherData);
     } catch (error) {
       console.error("Error fetching coordinates: ", error);
     }

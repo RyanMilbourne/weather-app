@@ -13,8 +13,7 @@ const WeatherDisplay = () => {
 
   const apiKey = import.meta.env.VITE_WEATHER_API_KEY;
 
-  // console.log("weather data: ", weatherData);
-  console.log("use this: ", city);
+  console.log("weather data: ", weatherData);
 
   const iconStyle = {
     width: "1.5rem",
@@ -44,15 +43,11 @@ const WeatherDisplay = () => {
       </div>
       {search && <WeatherInput handleSearchToggle={handleSearchToggle} />}
       <div className="weather-display-wrapper">
-        <div className="weather-display-header">
-          <h1>{city}</h1>
+        <div className="weather-display-header" onClick={handleSearchToggle}>
+          {city}
         </div>
         <div className="weather-display-temp-wrapper">
-          {weatherData ? (
-            <p>{Math.round(weatherData.main.temp)}°C</p>
-          ) : (
-            <p>0</p>
-          )}
+          {weatherData ? <>{Math.round(weatherData.main.temp)}°</> : <p>0</p>}
         </div>
       </div>
     </div>
