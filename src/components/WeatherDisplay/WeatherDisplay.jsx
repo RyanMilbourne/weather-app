@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
+import "./WeatherDisplay.scss";
 import axios from "axios";
 import { WeatherContext } from "../../hooks/weatherContext";
 
@@ -9,7 +10,7 @@ const WeatherDisplay = () => {
 
   const apiKey = import.meta.env.VITE_WEATHER_API_KEY;
 
-  console.log(weatherData);
+  console.log("weather data: ", weatherData);
 
   useEffect(() => {
     const fetchWeather = async () => {
@@ -26,9 +27,22 @@ const WeatherDisplay = () => {
     if (city) fetchWeather();
   }, [city]);
   return (
-    <div>
-      <h1>Weather in {city}</h1>
-      {weatherData ? <p>{weatherData.main.temp}°C</p> : <p>stand by</p>}
+    <div className="weather-display-container">
+      <div className="weather-display-wrapper">
+        <div className="weather-display-header">
+          <h1>
+            {city}
+            {weatherData ? <>, {weatherData.sys.country}</> : null}
+          </h1>
+        </div>
+        <div className="weather-display-temp-wrapper">
+          {weatherData ? (
+            <p>{Math.round(weatherData.main.temp)}°C</p>
+          ) : (
+            <p>stand by</p>
+          )}
+        </div>
+      </div>
     </div>
   );
 };
