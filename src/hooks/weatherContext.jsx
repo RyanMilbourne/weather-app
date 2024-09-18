@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useState, useEffect } from "react";
 import axios from "axios";
 import PlacesAutocomplete, {
   geocodeByAddress,
@@ -13,19 +13,26 @@ export const WeatherProvider = ({ children }) => {
   const [suggestions, setSuggestions] = useState([]);
   const [coordinates, setCoordinates] = useState({ lat: null, lng: null });
   const [search, setSearch] = useState(false);
+  const [weatherData, setWeatherData] = useState(null);
 
   const apiKey = import.meta.env.VITE_WEATHER_API_KEY;
 
-  const fetchWeatherData = async (lat, lon) => {
-    try {
-      const response = await axios.get(
-        `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`
-      );
-      return response.data;
-    } catch (error) {
-      console.error("Error fetching data: ", error);
-    }
-  };
+  useEffect(() => {
+    const fetchWeather = async () => {
+      try {
+        const response = await axios.get(
+          `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`
+        );
+        setWeatherData(response.data);
+        handleSearchToggle(false);
+        setInputCity(null);
+      } catch (error) {
+        console.error("Error fetching data", error);
+      }
+    };
+
+    if (city) fetchWeather();
+  }, [city]);
 
   const handleSearchToggle = () => {
     setSearch((prev) => !prev);
@@ -37,10 +44,6 @@ export const WeatherProvider = ({ children }) => {
       const latlng = await getLatLng(results[0]);
       setCity(value);
       setCoordinates(latlng);
-
-      const weatherData = await fetchWeatherData(latlng.lat, latlng.lng);
-      handleSearchToggle(false);
-      setInputCity(null);
     } catch (error) {
       console.error("Error fetching coordinates: ", error);
     }
@@ -62,6 +65,7 @@ export const WeatherProvider = ({ children }) => {
         handleSelect,
         search,
         handleSearchToggle,
+        weatherData,
       }}
     >
       {children}

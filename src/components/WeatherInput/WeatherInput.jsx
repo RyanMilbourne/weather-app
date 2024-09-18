@@ -23,7 +23,7 @@ const WeatherInput = ({ handleSearchToggle }) => {
           }) => (
             <div className="places-suggestions-container">
               <input
-                autoFocus="true"
+                autoFocus={true}
                 {...getInputProps({
                   placeholder: "Type city name...",
                 })}

@@ -3,17 +3,15 @@ import "./WeatherDisplay.scss";
 import axios from "axios";
 import { WeatherContext } from "../../hooks/weatherContext";
 import WeatherInput from "../WeatherInput/WeatherInput";
+import WeatherInfo from "../WeatherInfo/WeatherInfo";
 
 import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
 
 const WeatherDisplay = () => {
-  const [weatherData, setWeatherData] = useState(null);
-
-  const { city, search, handleSearchToggle } = useContext(WeatherContext);
+  const { weatherData, city, search, handleSearchToggle } =
+    useContext(WeatherContext);
 
   const apiKey = import.meta.env.VITE_WEATHER_API_KEY;
-
-  console.log("weather data: ", weatherData);
 
   const iconStyle = {
     width: "1.5rem",
@@ -22,20 +20,6 @@ const WeatherDisplay = () => {
     margin: 0,
   };
 
-  useEffect(() => {
-    const fetchWeather = async () => {
-      try {
-        const response = await axios.get(
-          `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`
-        );
-        setWeatherData(response.data);
-      } catch (error) {
-        console.error("Error fetching data", error);
-      }
-    };
-
-    if (city) fetchWeather();
-  }, [city]);
   return (
     <div className="weather-display-container">
       <div className="weather-display-search-icon" onClick={handleSearchToggle}>
@@ -49,6 +33,8 @@ const WeatherDisplay = () => {
         <div className="weather-display-temp-wrapper">
           {weatherData ? <>{Math.round(weatherData.main.temp)}°</> : <p>0</p>}
         </div>
+        <div className="temp-circle" />
+        <WeatherInfo />
       </div>
     </div>
   );
