@@ -1,5 +1,9 @@
 import React, { createContext, useState } from "react";
 import axios from "axios";
+import PlacesAutocomplete, {
+  geocodeByAddress,
+  getLatLng,
+} from "react-places-autocomplete";
 
 export const WeatherContext = createContext();
 
@@ -7,37 +11,37 @@ export const WeatherProvider = ({ children }) => {
   const [city, setCity] = useState("Vancouver");
   const [inputCity, setInputCity] = useState("");
   const [suggestions, setSuggestions] = useState([]);
+  const [coordinates, setCoordinates] = useState({ lat: null, lng: null });
 
   const apiKey = import.meta.env.VITE_WEATHER_API_KEY;
 
-  const fetchCitySuggestions = async (query) => {
-    if (query.length < 2) return;
-
+  const fetchWeatherData = async (lat, lon) => {
     try {
       const response = await axios.get(
-        `http://api.openweathermap.org/geo/1.0/direct?q=${query}&limit=5&appid=${apiKey}`
+        `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`
       );
-      setSuggestions(response.data);
+      return response.data;
     } catch (error) {
-      console.error("Error fetching suggestions", error);
+      console.error("Error fetching data: ", error);
     }
   };
 
-  const handleInputChange = (e) => {
-    setInputCity(e.target.value);
-    fetchCitySuggestions(e.target.value);
+  const handleSelect = async (value) => {
+    try {
+      const results = await geocodeByAddress(value);
+      const latlng = await getLatLng(results[0]);
+      setCity(value);
+      setCoordinates(latlng);
+
+      const weatherData = await fetchWeatherData(latlng.lat, latlng.lng);
+      console.log("This is weatherData: ", weatherData);
+    } catch (error) {
+      console.error("Error fetching coordinates: ", error);
+    }
   };
 
-  const handleSuggestionClick = (suggestions) => {
-    setCity(suggestions.name);
-    setInputCity("");
-    setSuggestions([]);
-  };
-
-  const handleCityChange = (e) => {
-    e.preventDefault();
-    setCity(inputCity);
-    setSuggestions([]);
+  const handleInputChange = (value) => {
+    setInputCity(value);
   };
 
   return (
@@ -47,9 +51,9 @@ export const WeatherProvider = ({ children }) => {
         inputCity,
         suggestions,
         setInputCity,
+        coordinates,
         handleInputChange,
-        handleSuggestionClick,
-        handleCityChange,
+        handleSelect,
       }}
     >
       {children}

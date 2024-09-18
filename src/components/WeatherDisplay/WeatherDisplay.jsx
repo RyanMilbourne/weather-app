@@ -30,10 +30,7 @@ const WeatherDisplay = () => {
     <div className="weather-display-container">
       <div className="weather-display-wrapper">
         <div className="weather-display-header">
-          <h1>
-            {city}
-            {weatherData ? <>, {weatherData.sys.country}</> : null}
-          </h1>
+          <h1>{city}</h1>
         </div>
         <div className="weather-display-temp-wrapper">
           {weatherData ? (

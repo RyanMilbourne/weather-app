@@ -1,17 +1,27 @@
+import React, { useState } from "react";
 import "./App.css";
 import { BrowserRouter } from "react-router-dom";
-import Navbar from "./sections/navbar/Navbar";
 import HomeRoute from "./routes/HomeRoute";
-import Footer from "./sections/footer/Footer";
+import GoogleMapsLoader from "./components/GoogleMapsLoader/GoogleMapsLoader";
 
 function App() {
+  const [isGoogleMapsLoaded, setIsGoogleMapsLoaded] = useState(false);
+
+  const handleGoogleMapsLoad = () => {
+    setIsGoogleMapsLoaded(true);
+  };
+
   return (
     <>
-      <BrowserRouter>
-        {/* <Navbar /> */}
-        <HomeRoute />
-        {/* <Footer /> */}
-      </BrowserRouter>
+      <GoogleMapsLoader onLoad={handleGoogleMapsLoad} />
+
+      {isGoogleMapsLoaded ? (
+        <BrowserRouter>
+          <HomeRoute />
+        </BrowserRouter>
+      ) : (
+        <div>Loading Google Maps...</div>
+      )}
     </>
   );
 }

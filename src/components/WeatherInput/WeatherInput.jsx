@@ -1,46 +1,56 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
+import "./WeatherInputStyles.scss";
 import { WeatherContext } from "../../hooks/weatherContext";
+import PlacesAutocomplete from "react-places-autocomplete";
 
 const WeatherInput = () => {
-  const {
-    inputCity,
-    handleInputChange,
-    handleSuggestionClick,
-    handleCityChange,
-    suggestions,
-  } = useContext(WeatherContext);
-
-  console.log(suggestions);
+  const { inputCity, handleInputChange, handleSelect, city, coordinates } =
+    useContext(WeatherContext);
 
   return (
-    <form onSubmit={handleCityChange}>
-      <input
-        type="text"
+    <>
+      <PlacesAutocomplete
         value={inputCity}
         onChange={handleInputChange}
-        placeholder="enter a city"
-        autoComplete="off"
-      />
-      {/* <button type="submit">get weather</button> */}
-
-      {suggestions.length > 0 && (
+        onSelect={handleSelect}
+      >
+        {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
+          <div>
+            <input
+              {...getInputProps({
+                placeholder: "Type city name...",
+              })}
+            />
+            <div className="places-suggestions-container">
+              {loading ? <div>searching...</div> : null}
+              {suggestions.map((suggestion, index) => {
+                const style = {
+                  backgroundColor: suggestion.active ? "#fafafa" : "#ffffff",
+                  cursor: "pointer",
+                };
+                return (
+                  <div
+                    className="places-suggestions-wrapper"
+                    key={index}
+                    {...getSuggestionItemProps(suggestion)}
+                  >
+                    {suggestion.description}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        )}
+      </PlacesAutocomplete>
+      {/* {city && coordinates.lat && (
         <div>
-          {suggestions.map((suggestion, index) => (
-            <li
-              key={index}
-              onClick={() => handleSuggestionClick(suggestion)}
-              style={{
-                cursor: "pointer",
-                padding: "5px",
-                border: "1px solid #ddd",
-              }}
-            >
-              {suggestion.name}, {suggestion.country}
-            </li>
-          ))}
+          <h2>{city}</h2>
+          <p>
+            Coordinates: {coordinates.lat}, {coordinates.lng}
+          </p>
         </div>
-      )}
-    </form>
+      )} */}
+    </>
   );
 };
 
