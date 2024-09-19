@@ -4,7 +4,9 @@ import conditionsData from "./conditionsData";
 import "./WeatherInfoStyles.scss";
 
 const WeatherInfo = () => {
-  const { weatherData } = useContext(WeatherContext);
+  const { weatherData, city } = useContext(WeatherContext);
+
+  const formattedCity = city.split(",").slice(0, 2).join(",").trim();
 
   const convertToPST = (timestamp) => {
     const date = new Date(timestamp * 1000);
@@ -27,9 +29,7 @@ const WeatherInfo = () => {
           <div className="info-temp-wrapper">
             {weatherData ? <>{Math.round(weatherData.main.temp)}°</> : <p></p>}
           </div>
-          <div className="info-header">
-            <h2>{weatherData.name}</h2>
-          </div>
+          <div className="info-header">{formattedCity}</div>
           <p>{weatherData.weather[0].description}</p>
           <p>humidity: {weatherData.main.humidity}</p>
           <p>min: {weatherData.main.temp_min}</p>
