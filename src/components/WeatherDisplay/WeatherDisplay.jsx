@@ -11,6 +11,7 @@ const WeatherDisplay = () => {
   const [iconId, setIconId] = useState("01d");
   const [skyColor, setSkyColor] = useState("ffa500");
   const [circleColor, setCircleColor] = useState("#ffa60000");
+
   const { weatherData, city, search, handleSearchToggle } =
     useContext(WeatherContext);
 
@@ -57,7 +58,7 @@ const WeatherDisplay = () => {
     transparent 90%`,
           }}
         >
-          {weatherData ? <>{Math.round(weatherData.main.temp)}°</> : <p>0</p>}
+          {weatherData ? <>{Math.round(weatherData.main.temp)}°</> : <p></p>}
         </div>
         <div
           className="sun-moon-graphic"
