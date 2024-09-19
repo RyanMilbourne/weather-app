@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { WeatherContext } from "../../hooks/weatherContext";
+import conditionsData from "./conditionsData";
 import "./WeatherInfoStyles.scss";
 
 const WeatherInfo = () => {
@@ -23,7 +24,14 @@ const WeatherInfo = () => {
     <div className="info-container">
       {weatherData ? (
         <div className="info-wrapper">
-          <p>{weatherData.name}</p>
+          <div className="info-header">
+            <h2>{weatherData.name}</h2>
+          </div>
+          <p>{weatherData.weather[0].icon}</p>
+          <img
+            alt="icon"
+            src={`https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`}
+          />
           <p>{weatherData.weather[0].description}</p>
           <p>humidity: {weatherData.main.humidity}</p>
           <p>min: {weatherData.main.temp_min}</p>
