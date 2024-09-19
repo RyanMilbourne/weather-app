@@ -71,12 +71,6 @@ const WeatherInfo = () => {
               </div>
             </div>
           </div>
-          {/* <p>{weatherData.weather[0].description}</p>
-          <p>humidity: {weatherData.main.humidity}</p>
-          <p>min: {weatherData.main.temp_min}</p>
-          <p>max: {weatherData.main.temp_max}</p>
-          <p>sunrise: {convertToPST(weatherData.sys.sunrise)}</p>
-          <p>sunrise: {convertToPST(weatherData.sys.sunset)}</p> */}
         </div>
       ) : null}
     </div>
