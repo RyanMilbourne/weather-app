@@ -60,7 +60,7 @@ const WeatherDisplay = () => {
           {weatherData ? <>{Math.round(weatherData.main.temp)}°</> : <p>0</p>}
         </div>
         <div
-          className="temp-circle"
+          className="sun-moon-graphic"
           style={{ backgroundColor: `${circleColor}` }}
         />
         <WeatherInfo />
