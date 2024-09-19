@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import { WeatherContext } from "../../hooks/weatherContext";
-import conditionsData from "./conditionsData";
 import WbTwilightRoundedIcon from "@mui/icons-material/WbTwilightRounded";
 import OpacityRoundedIcon from "@mui/icons-material/OpacityRounded";
 import "./WeatherInfoStyles.scss";
@@ -32,8 +31,10 @@ const WeatherInfo = () => {
             {weatherData ? <>{Math.round(weatherData.main.temp)}°</> : <p></p>}
           </div>
           <div className="info-header">{formattedCity}</div>
-          <p>{weatherData.weather[0].description}</p>
           <div className="info-row-wrapper">
+            <div className="current-conditions-wrapper">
+              {weatherData.weather[0].description}
+            </div>
             <div className="info-row-item">
               <div className="info-row-hero adjust">
                 {Math.round(weatherData.main.temp_min)}°
