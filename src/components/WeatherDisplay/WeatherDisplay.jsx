@@ -9,7 +9,8 @@ import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
 
 const WeatherDisplay = () => {
   const [iconId, setIconId] = useState("01d");
-  const [accentColor, setAccentColor] = useState("ffa500");
+  const [skyColor, setSkyColor] = useState("ffa500");
+  const [circleColor, setCircleColor] = useState("#ffa60000");
   const { weatherData, city, search, handleSearchToggle } =
     useContext(WeatherContext);
 
@@ -27,10 +28,12 @@ const WeatherDisplay = () => {
 
       const weatherCondition = conditionsData[fetchedIconId];
 
-      if (weatherCondition && weatherCondition.color) {
-        setAccentColor(weatherCondition.color);
+      if (weatherCondition && weatherCondition.sky) {
+        setSkyColor(weatherCondition.sky);
+        setCircleColor(weatherCondition.circle);
       } else {
-        setAccentColor("#ffa500");
+        setSkyColor("#ffa500");
+        setCircleColor("#ffa60000");
       }
     }
   }, [weatherData]);
@@ -50,13 +53,16 @@ const WeatherDisplay = () => {
           style={{
             background: `linear-gradient(
     to bottom,
-    ${accentColor} 50%,
+    ${skyColor} 50%,
     transparent 90%`,
           }}
         >
           {weatherData ? <>{Math.round(weatherData.main.temp)}°</> : <p>0</p>}
         </div>
-        <div className="temp-circle" />
+        <div
+          className="temp-circle"
+          style={{ backgroundColor: `${circleColor}` }}
+        />
         <WeatherInfo />
       </div>
     </div>
