@@ -3,7 +3,7 @@
 .weather-display-container {
   box-sizing: border-box;
   background-color: $main;
-  box-shadow: $shadow-v4;
+  box-shadow: $shadow-v1;
   color: $light;
   width: 90%;
   max-width: 450px;
@@ -16,7 +16,7 @@
 .weather-display-search-icon {
   color: $dark-blue;
   position: absolute;
-  top: 1.25rem;
+  top: 1.125rem;
   right: 1.25rem;
   display: flex;
   align-items: center;
@@ -30,6 +30,26 @@
 }
 
 .weather-display-search-icon:hover {
+  transform: scale(1.1);
+}
+
+.weather-display-preset-icon {
+  color: $dark-blue;
+  position: absolute;
+  top: 1.125rem;
+  left: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 100%;
+  cursor: pointer;
+  z-index: 1;
+  transition: all 0.25s ease;
+}
+
+.weather-display-preset-icon:hover {
   transform: scale(1.1);
 }
 

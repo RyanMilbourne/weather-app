@@ -6,6 +6,7 @@ import WeatherInfo from "../WeatherInfo/WeatherInfo";
 import conditionsData from "../WeatherInfo/conditionsData";
 
 import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
+import BookmarksRoundedIcon from "@mui/icons-material/BookmarksRounded";
 
 const WeatherDisplay = () => {
   const [iconId, setIconId] = useState("01d");
@@ -43,6 +44,9 @@ const WeatherDisplay = () => {
     <div className="weather-display-container">
       <div className="weather-display-search-icon" onClick={handleSearchToggle}>
         <SearchRoundedIcon style={iconStyle} />
+      </div>
+      <div className="weather-display-preset-icon">
+        <BookmarksRoundedIcon style={iconStyle} />
       </div>
       {search && <WeatherInput handleSearchToggle={handleSearchToggle} />}
       <div className="weather-display-wrapper">
