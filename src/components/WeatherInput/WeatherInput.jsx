@@ -3,8 +3,8 @@ import "./WeatherInputStyles.scss";
 import { WeatherContext } from "../../hooks/weatherContext";
 import PlacesAutocomplete from "react-places-autocomplete";
 
-const WeatherInput = ({ handleSearchToggle }) => {
-  const { inputCity, handleInputChange, handleSelect, city, coordinates } =
+const WeatherInput = () => {
+  const { inputCity, handleInputChange, handleSelect } =
     useContext(WeatherContext);
 
   return (
