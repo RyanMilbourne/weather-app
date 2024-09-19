@@ -2,7 +2,7 @@
 
 .weather-display-container {
   box-sizing: border-box;
-  background-color: $main;
+  background: linear-gradient(0deg, $main 80%, rgb(224, 224, 224) 120%);
   box-shadow: $shadow-v1;
   color: $light;
   width: 90%;
@@ -87,6 +87,7 @@
   font-weight: 100;
   font-optical-sizing: auto;
   position: relative;
+  box-shadow: $shadow-v2;
 }
 
 .sun-moon-graphic {
