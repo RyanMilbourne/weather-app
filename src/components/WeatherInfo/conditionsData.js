@@ -79,6 +79,16 @@ const conditionsData = {
     sky: "#57595c",
     circle: "#ffe5b6",
   },
+  "50d": {
+    name: "mist day",
+    sky: "#c8ced8",
+    circle: "#ffa500",
+  },
+  "50n": {
+    name: "mist night",
+    sky: "#57595c",
+    circle: "#ffe5b6",
+  },
 };
 
 export default conditionsData;
