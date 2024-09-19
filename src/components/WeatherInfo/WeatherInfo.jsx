@@ -27,7 +27,6 @@ const WeatherInfo = () => {
           <div className="info-header">
             <h2>{weatherData.name}</h2>
           </div>
-          <p>{weatherData.weather[0].icon}</p>
           <img
             alt="icon"
             src={`https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`}
