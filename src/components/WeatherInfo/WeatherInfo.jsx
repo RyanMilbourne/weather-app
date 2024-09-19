@@ -3,6 +3,7 @@ import { WeatherContext } from "../../hooks/weatherContext";
 import WbTwilightRoundedIcon from "@mui/icons-material/WbTwilightRounded";
 import OpacityRoundedIcon from "@mui/icons-material/OpacityRounded";
 import "./WeatherInfoStyles.scss";
+import InfoRowItem from "./InfoRowItem";
 
 const WeatherInfo = () => {
   const { weatherData, city } = useContext(WeatherContext);
@@ -35,42 +36,28 @@ const WeatherInfo = () => {
             <div className="current-conditions-wrapper">
               {weatherData.weather[0].description}
             </div>
-            <div className="info-row-item">
-              <div className="info-row-hero adjust">
-                {Math.round(weatherData.main.temp_min)}°
-              </div>
-              <div className="info-row-secondary">min</div>
-            </div>
-            <div className="info-row-item">
-              <div className="info-row-hero adjust">
-                {Math.round(weatherData.main.temp_max)}°
-              </div>
-              <div className="info-row-secondary">max</div>
-            </div>
-            <div className="info-row-item">
-              <div className="info-row-hero">
-                <WbTwilightRoundedIcon />
-              </div>
-              <div className="info-row-secondary">
-                {convertToPST(weatherData.sys.sunrise)}
-              </div>
-            </div>
-            <div className="info-row-item">
-              <div className="info-row-hero">
-                <WbTwilightRoundedIcon />
-              </div>
-              <div className="info-row-secondary">
-                {convertToPST(weatherData.sys.sunset)}
-              </div>
-            </div>
-            <div className="info-row-item">
-              <div className="info-row-hero">
-                <OpacityRoundedIcon />
-              </div>
-              <div className="info-row-secondary">
-                {weatherData.main.humidity}
-              </div>
-            </div>
+            <InfoRowItem
+              hero={`${Math.round(weatherData.main.temp_min)}°`}
+              secondary="min"
+              adjust={true}
+            />
+            <InfoRowItem
+              hero={`${Math.round(weatherData.main.temp_max)}°`}
+              secondary="max"
+              adjust={true}
+            />
+            <InfoRowItem
+              hero={<WbTwilightRoundedIcon />}
+              secondary={convertToPST(weatherData.sys.sunrise)}
+            />
+            <InfoRowItem
+              hero={<WbTwilightRoundedIcon />}
+              secondary={convertToPST(weatherData.sys.sunset)}
+            />
+            <InfoRowItem
+              hero={<OpacityRoundedIcon />}
+              secondary={weatherData.main.humidity}
+            />
           </div>
         </div>
       ) : null}
