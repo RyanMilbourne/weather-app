@@ -11,7 +11,11 @@ $nav-height: 60px;
 // colors
 // $dark: #252233;
 $dark: rgba(18, 17, 24, 1);
-$light: whitesmoke;
+$dark-blue: #2f3947;
+$light: rgb(226, 225, 225);
+$main: rgba(181, 181, 181, 1);
+$secondary: rgba(181, 181, 181, 0.3);
+$third: rgba(181, 181, 181, 0.6);
 
 // box shadows
 $shadow-v1: 0px 2.3px 2.8px 0px rgba(0, 0, 0, 0.027),
@@ -47,6 +51,27 @@ $shadow-v3: inset 5px 5px 13px #08080b, inset -5px -5px 13px #1c1a25,
   0px 47.6px 32.3px 0px rgba(0, 0, 0, 0.05),
   0px 67.7px 38.5px 0px rgba(0, 0, 0, 0.055),
   0px 107.7px 48.5px 0px rgba(0, 0, 0, 0.06);
+
+$shadow-v4: rgba(0, 0, 0, 0.312) 1px 1px 20px,
+  rgba(0, 0, 0, 0.016) 1.2px 1.2px 0.3px, rgba(0, 0, 0, 0.024) 2.4px 2.4px 0.6px,
+  rgba(0, 0, 0, 0.024) 3.8px 3.8px 1px, rgba(0, 0, 0, 0.027) 5.2px 5.2px 1.4px,
+  rgba(0, 0, 0, 0.027) 6.9px 6.9px 1.9px, rgba(0, 0, 0, 0.027) 8.8px 8.8px 2.5px,
+  rgba(0, 0, 0, 0.027) 11.3px 11.3px 3.3px,
+  rgba(0, 0, 0, 0.03) 14.4px 14.4px 4.5px,
+  rgba(0, 0, 0, 0.03) 18.6px 18.6px 6.1px,
+  rgba(0, 0, 0, 0.03) 24.3px 24.3px 8.3px,
+  rgba(0, 0, 0, 0.03) 32.5px 32.5px 11.6px,
+  rgba(0, 0, 0, 0.03) 44.9px 44.9px 16.8px,
+  rgba(0, 0, 0, 0.035) 65.5px 65.5px 25.5px,
+  rgba(0, 0, 0, 0.035) 106.4px 106.4px 43px;
+
+$shadow-v5: rgba(0, 0, 0, 0) 0px 0px 0px,
+  rgba(0, 0, 0, 0.043) 1.2px -1.2px 5.8px,
+  rgba(0, 0, 0, 0.055) 2.5px -2.5px 11.7px,
+  rgba(0, 0, 0, 0.06) 4.3px -4.3px 17.9px,
+  rgba(0, 0, 0, 0.063) 7.3px -7.3px 25.2px,
+  rgba(0, 0, 0, 0.067) 14.4px -14.4px 35.8px;
+
 // animations
 @keyframes slideDown {
   from {

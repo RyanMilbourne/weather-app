@@ -58,12 +58,15 @@ const WeatherDisplay = () => {
     transparent 90%`,
           }}
         >
-          {weatherData ? <>{Math.round(weatherData.main.temp)}°</> : <p></p>}
+          <div
+            className="sun-moon-graphic"
+            style={{ backgroundColor: `${circleColor}` }}
+          />
+          <div className="sky-graphic-wrapper">
+            <div className="sky-graphic" />
+          </div>
         </div>
-        <div
-          className="sun-moon-graphic"
-          style={{ backgroundColor: `${circleColor}` }}
-        />
+
         <WeatherInfo />
       </div>
     </div>

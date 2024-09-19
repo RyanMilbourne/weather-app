@@ -24,13 +24,12 @@ const WeatherInfo = () => {
     <div className="info-container">
       {weatherData ? (
         <div className="info-wrapper">
+          <div className="info-temp-wrapper">
+            {weatherData ? <>{Math.round(weatherData.main.temp)}°</> : <p></p>}
+          </div>
           <div className="info-header">
             <h2>{weatherData.name}</h2>
           </div>
-          <img
-            alt="icon"
-            src={`https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`}
-          />
           <p>{weatherData.weather[0].description}</p>
           <p>humidity: {weatherData.main.humidity}</p>
           <p>min: {weatherData.main.temp_min}</p>
