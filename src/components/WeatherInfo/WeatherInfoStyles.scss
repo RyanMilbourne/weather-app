@@ -17,7 +17,6 @@
   flex-direction: column;
   justify-content: flex-end;
   z-index: 5;
-  // box-shadow: $shadow-v5;
 }
 
 .info-wrapper {
@@ -29,6 +28,7 @@
 .info-temp-wrapper {
   font-size: 7rem;
   font-family: $secondary-font-family;
+  text-shadow: $text-shadow-v1;
 }
 
 .info-header {
