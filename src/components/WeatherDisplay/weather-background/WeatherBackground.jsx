@@ -44,10 +44,26 @@ const WeatherBackground = () => {
       >
         <SunMoon circleColor={circleColor} />
         <div className="graphic-1">
-          <Cloud1 />
+          {/* {(iconId === "01d" || iconId === "01n") && <Cloud1 />} */}
+          {(iconId === "02d" || iconId === "02n") && <Cloud1 />}
+          {(iconId === "03d" || iconId === "03n") && <Cloud1 />}
+          {(iconId === "04d" || iconId === "04n") && <Cloud1 />}
+          {(iconId === "09d" || iconId === "09n") && <Cloud1 />}
+          {(iconId === "10d" || iconId === "10n") && <Cloud1 />}
+          {(iconId === "11d" || iconId === "11n") && <Cloud1 />}
+          {/* {(iconId === "13d" || iconId === "13n") && <Cloud1 />} */}
+          {/* {(iconId === "50d" || iconId === "50n") && <Cloud1 />} */}
         </div>
         <div className="graphic-2">
-          <Cloud2 />
+          {/* {(iconId === "01d" || iconId === "01n") && <Cloud2 />} */}
+          {(iconId === "02d" || iconId === "02n") && <Cloud2 />}
+          {(iconId === "03d" || iconId === "03n") && <Cloud2 />}
+          {(iconId === "04d" || iconId === "04n") && <Cloud2 />}
+          {(iconId === "09d" || iconId === "09n") && <Cloud2 />}
+          {(iconId === "10d" || iconId === "10n") && <Cloud2 />}
+          {(iconId === "11d" || iconId === "11n") && <Cloud2 />}
+          {/* {(iconId === "13d" || iconId === "13n") && <Cloud2 />} */}
+          {/* {(iconId === "50d" || iconId === "50n") && <Cloud2 />} */}
         </div>
         <div className="graphic-3"></div>
       </div>
