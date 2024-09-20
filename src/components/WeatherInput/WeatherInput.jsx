@@ -21,29 +21,31 @@ const WeatherInput = () => {
             getSuggestionItemProps,
             loading,
           }) => (
-            <div className="places-suggestions-container">
+            <div className="search-container">
               <input
                 autoFocus={true}
                 {...getInputProps({
                   placeholder: "Type city name...",
                 })}
               />
-              {inputCity ? (
-                <div className="places-suggestions-wrapper">
-                  {loading ? <div>searching...</div> : null}
-                  {suggestions.map((suggestion, index) => {
-                    return (
-                      <div
-                        className="places-suggestions-item"
-                        key={index}
-                        {...getSuggestionItemProps(suggestion)}
-                      >
-                        {suggestion.description}
-                      </div>
-                    );
-                  })}
-                </div>
-              ) : null}
+              <div className="places-suggestions-container">
+                {inputCity && suggestions.length > 0 && (
+                  <div className="places-suggestions-wrapper">
+                    {loading && <div>searching...</div>}
+                    {suggestions.map((suggestion, index) => {
+                      return (
+                        <div
+                          className="places-suggestions-item"
+                          key={index}
+                          {...getSuggestionItemProps(suggestion)}
+                        >
+                          {suggestion.description}
+                        </div>
+                      );
+                    })}
+                  </div>
+                )}
+              </div>
             </div>
           )}
         </PlacesAutocomplete>

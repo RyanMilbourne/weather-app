@@ -2,7 +2,7 @@
 
 .weather-input-container {
   position: absolute;
-  top: 1rem;
+  top: 0;
   right: 0;
   width: 100%;
   display: flex;
@@ -15,12 +15,31 @@
 .weather-input-wrapper {
   backdrop-filter: blur(20px);
   padding: 10px;
-  width: 90%;
+  box-sizing: border-box;
+  width: 100%;
   height: 100%;
-  border-radius: 20px;
+  border-radius: 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  box-shadow: $shadow-v1;
+}
+
+.search-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  background-color: $light;
+  box-sizing: border-box;
+  border: none;
+  padding: 9px 20px;
+  border-radius: 50px;
+  width: calc(100% - 2.75rem);
+  box-shadow: $shadow-v2;
+  color: $dark;
 }
 
 .places-suggestions-container {
@@ -32,6 +51,7 @@
 }
 
 .places-suggestions-wrapper {
+  margin-top: 1rem;
   text-align: left;
   display: flex;
   flex-direction: column;
@@ -50,15 +70,4 @@
 
 .places-suggestions-item:hover {
   background-color: $dark-blue;
-}
-
-input {
-  background-color: $light;
-  box-sizing: border-box;
-  border: none;
-  padding: 9px 20px;
-  border-radius: 50px;
-  width: calc(100% - 2.75rem);
-  box-shadow: $shadow-v2;
-  color: $dark;
 }
