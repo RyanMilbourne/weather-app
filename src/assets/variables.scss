@@ -82,13 +82,16 @@ $shadow-v5: rgba(0, 0, 0, 0) 0px 0px 0px,
 
 $shadow-v6: 10px 10px 10px -5px rgba(0, 0, 0, 0.025);
 
+$shadow-v7: 0px -1px 10px -5px #0000001f, 0px -10px 20px -5px #00000005;
+
 // text shadows
 $text-shadow-v1: rgba(0, 0, 0, 0) 0px 0px 0px,
   rgba(0, 0, 0, 0.04) 0.2px 0.2px 0px, rgba(0, 0, 0, 0.047) 0.4px 0.4px 0.1px,
   rgba(0, 0, 0, 0.05) 0.8px 0.8px 0.5px, rgba(0, 0, 0, 0.055) 1.6px 1.6px 1.3px,
   rgba(0, 0, 0, 0.06) 3.1px 3.1px 3px, rgba(0, 0, 0, 0.06) 6px 6px 6.5px,
   rgba(0, 0, 0, 0.063) 11.8px 11.8px 13.7px,
-  rgba(0, 0, 0, 0.067) 25.8px 25.8px 31.3px;
+  rgba(0, 0, 0, 0.067) 25.8px 25.8px 31.3px,
+  -1px -1px 6px rgba(255, 255, 255, 0.145);
 
 // animations
 @keyframes slideDown {
