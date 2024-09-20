@@ -30,7 +30,7 @@ const WeatherBackground = () => {
   return (
     <div className="weather-display-wrapper">
       <div
-        className="weather-display-temp-wrapper"
+        className="weather-display-background-wrapper"
         style={{
           background: `linear-gradient(
 to bottom,
