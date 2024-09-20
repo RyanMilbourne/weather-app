@@ -3,6 +3,7 @@ import "./App.css";
 import { BrowserRouter } from "react-router-dom";
 import HomeRoute from "./routes/HomeRoute";
 import GoogleMapsLoader from "./components/GoogleMapsLoader/GoogleMapsLoader";
+import Loading from "./components/GoogleMapsLoader/Loading";
 
 function App() {
   const [isGoogleMapsLoaded, setIsGoogleMapsLoaded] = useState(false);
@@ -20,7 +21,7 @@ function App() {
           <HomeRoute />
         </BrowserRouter>
       ) : (
-        <div>Loading Google Maps...</div>
+        <Loading />
       )}
     </>
   );
