@@ -6,8 +6,8 @@ const Homepage = () => {
   return (
     <>
       <Helmet>
-        <title>Homepage Title</title>
-        <meta name="description" content="Homepage Description" />
+        <title>Weather App</title>
+        <meta name="description" content="Weather App Practice Build" />
       </Helmet>
       <div className="homepage-container">
         <WeatherDisplay />
