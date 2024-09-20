@@ -2,6 +2,8 @@ import React, { useState, useEffect, useContext } from "react";
 import { WeatherContext } from "../../../hooks/weatherContext";
 import conditionsData from "../../WeatherInfo/conditionsData";
 import SunMoon from "../SunMoon/SunMoon";
+import Cloud2 from "./background-graphics/Cloud2";
+import Cloud1 from "./background-graphics/Cloud1";
 
 const WeatherBackground = () => {
   const [iconId, setIconId] = useState("01d");
@@ -27,18 +29,27 @@ const WeatherBackground = () => {
     }
   }, [weatherData]);
 
+  const backgroundStyle = {
+    background: `linear-gradient(
+      to bottom,
+      ${skyColor} 50%,
+      transparent 90%`,
+  };
+
   return (
     <div className="weather-display-wrapper">
       <div
         className="weather-display-background-wrapper"
-        style={{
-          background: `linear-gradient(
-to bottom,
-${skyColor} 50%,
-transparent 90%`,
-        }}
+        style={backgroundStyle}
       >
         <SunMoon circleColor={circleColor} />
+        <div className="graphic-1">
+          <Cloud1 />
+        </div>
+        <div className="graphic-2">
+          <Cloud2 />
+        </div>
+        <div className="graphic-3"></div>
       </div>
     </div>
   );
