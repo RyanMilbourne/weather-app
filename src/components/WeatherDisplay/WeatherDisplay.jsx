@@ -7,6 +7,7 @@ import conditionsData from "../WeatherInfo/conditionsData";
 
 import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
 import BookmarksRoundedIcon from "@mui/icons-material/BookmarksRounded";
+import SunMoon from "./SunMoon/SunMoon";
 
 const WeatherDisplay = () => {
   const [iconId, setIconId] = useState("01d");
@@ -62,13 +63,7 @@ const WeatherDisplay = () => {
     transparent 90%`,
           }}
         >
-          <div
-            className="sun-moon-graphic"
-            style={{ backgroundColor: `${circleColor}` }}
-          />
-          <div className="sky-graphic-wrapper">
-            <div className="sky-graphic" />
-          </div>
+          <SunMoon circleColor={circleColor} />
         </div>
 
         <WeatherInfo />
