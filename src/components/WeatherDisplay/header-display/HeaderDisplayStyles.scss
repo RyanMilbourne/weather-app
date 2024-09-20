@@ -1,0 +1,49 @@
+@import "@/assets/variables.scss";
+
+.weather-display-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.weather-display-search-icon {
+  color: $dark-blue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 100%;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.25s ease;
+}
+
+.weather-display-search-icon:hover {
+  transform: scale(1.1);
+}
+
+.weather-display-preset-icon {
+  color: $dark-blue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 100%;
+  cursor: pointer;
+  z-index: 1;
+  transition: all 0.25s ease;
+}
+
+.weather-display-preset-icon:hover {
+  transform: scale(1.1);
+}
+
+.weather-display-location {
+  font-weight: 500;
+  color: $dark-blue;
+  width: 80%;
+  cursor: pointer;
+}

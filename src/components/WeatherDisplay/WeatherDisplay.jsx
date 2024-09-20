@@ -1,28 +1,17 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./WeatherDisplay.scss";
 import { WeatherContext } from "../../hooks/weatherContext";
-import WeatherInput from "../WeatherInput/WeatherInput";
 import WeatherInfo from "../WeatherInfo/WeatherInfo";
 import conditionsData from "../WeatherInfo/conditionsData";
-
-import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
-import BookmarksRoundedIcon from "@mui/icons-material/BookmarksRounded";
 import SunMoon from "./SunMoon/SunMoon";
+import HeaderDisplay from "./header-display/HeaderDisplay";
 
 const WeatherDisplay = () => {
   const [iconId, setIconId] = useState("01d");
   const [skyColor, setSkyColor] = useState("ffa500");
   const [circleColor, setCircleColor] = useState("#ffa60000");
 
-  const { weatherData, city, search, handleSearchToggle } =
-    useContext(WeatherContext);
-
-  const iconStyle = {
-    width: "1.5rem",
-    height: "1.5rem",
-    padding: 0,
-    margin: 0,
-  };
+  const { weatherData } = useContext(WeatherContext);
 
   useEffect(() => {
     if (weatherData !== null) {
@@ -43,17 +32,9 @@ const WeatherDisplay = () => {
 
   return (
     <div className="weather-display-container">
-      <div className="weather-display-search-icon" onClick={handleSearchToggle}>
-        <SearchRoundedIcon style={iconStyle} />
-      </div>
-      <div className="weather-display-preset-icon">
-        <BookmarksRoundedIcon style={iconStyle} />
-      </div>
-      {search && <WeatherInput handleSearchToggle={handleSearchToggle} />}
+      <HeaderDisplay />
+
       <div className="weather-display-wrapper">
-        <div className="weather-display-header" onClick={handleSearchToggle}>
-          {city}
-        </div>
         <div
           className="weather-display-temp-wrapper"
           style={{
