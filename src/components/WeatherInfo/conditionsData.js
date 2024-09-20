@@ -7,7 +7,7 @@ const conditionsData = {
   },
   "01n": {
     name: "clear sky night",
-    sky: "#10253f",
+    sky: "#2f3947",
     circle: "#ffe5b6",
     image: "",
   },
@@ -19,7 +19,7 @@ const conditionsData = {
   },
   "02n": {
     name: "few clouds night",
-    sky: "#172230",
+    sky: "#2f3947",
     circle: "#ffe5b6",
     image: "",
   },
@@ -31,7 +31,7 @@ const conditionsData = {
   },
   "03n": {
     name: "scattered clouds night",
-    sky: "#282e37",
+    sky: "#2f3947",
     circle: "#ffe5b6",
     image: "/sky-graphics/scattered-clouds.webp",
   },
@@ -43,7 +43,7 @@ const conditionsData = {
   },
   "04n": {
     name: "broken clouds night",
-    sky: "#222831",
+    sky: "#2f3947",
     circle: "#ffe5b6",
     image: "/sky-graphics/broken-clouds.webp",
   },
@@ -55,7 +55,7 @@ const conditionsData = {
   },
   "09n": {
     name: "shower rain night",
-    sky: "#303a48",
+    sky: "#2f3947",
     circle: "#ffe5b6",
     image: "",
   },
@@ -67,7 +67,7 @@ const conditionsData = {
   },
   "10n": {
     name: "rain night",
-    sky: "#303a48",
+    sky: "#2f3947",
     circle: "#ffe5b6",
     image: "",
   },
@@ -79,7 +79,7 @@ const conditionsData = {
   },
   "11n": {
     name: "thunderstorm night",
-    sky: "#222428",
+    sky: "#2f3947",
     circle: "#ffe5b6",
     image: "/sky-graphics/thunderstorm.webp",
   },
@@ -91,7 +91,7 @@ const conditionsData = {
   },
   "13n": {
     name: "snow night",
-    sky: "#57595c",
+    sky: "#2f3947",
     circle: "#ffe5b6",
     image: "",
   },
@@ -103,7 +103,7 @@ const conditionsData = {
   },
   "50n": {
     name: "mist night",
-    sky: "#57595c",
+    sky: "#2f3947",
     circle: "#ffe5b6",
     image: "",
   },
