@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import { WeatherContext } from "../../hooks/weatherContext";
 import "./WeatherInfoStyles.scss";
-import InfoRow from "./InfoRow";
-import HeroRow from "./HeroRow";
+import InfoRow from "./info-row/InfoRow";
+import HeroRow from "./hero-row/HeroRow";
 
 const WeatherInfo = () => {
   const { weatherData, city } = useContext(WeatherContext);

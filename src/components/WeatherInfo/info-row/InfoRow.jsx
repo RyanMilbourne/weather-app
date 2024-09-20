@@ -1,9 +1,10 @@
 import React, { useContext } from "react";
+import "./InfoRowStyles.scss";
 import InfoRowItem from "./InfoRowItem";
-import { WeatherContext } from "../../hooks/weatherContext";
+import { WeatherContext } from "../../../hooks/weatherContext";
 import WbTwilightRoundedIcon from "@mui/icons-material/WbTwilightRounded";
 import OpacityRoundedIcon from "@mui/icons-material/OpacityRounded";
-import useTimezoneOffset from "../../hooks/useTimezoneOffset";
+import useTimezoneOffset from "../../../hooks/useTimezoneOffset";
 
 const InfoRow = () => {
   const { weatherData } = useContext(WeatherContext);
