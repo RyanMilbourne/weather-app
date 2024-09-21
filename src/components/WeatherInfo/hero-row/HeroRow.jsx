@@ -11,7 +11,10 @@ const HeroRow = () => {
   const wind = weatherData.wind.deg;
   const iconId = weatherData.weather[0].icon;
 
-  console.log("look here: ", iconId);
+  const iconStyle = {
+    width: "1.25rem",
+    height: "1.25rem",
+  };
 
   return (
     <div className="info-hero-details-wrapper">
@@ -20,12 +23,16 @@ const HeroRow = () => {
       </div>
       <div className="hero-conditions">{currentCondition}</div>
       <div className="hero-wind-container">
+        <div className="compass-direction north">N</div>
+        <div className="compass-direction east">E</div>
+        <div className="compass-direction south">S</div>
+        <div className="compass-direction west">W</div>
         <div className="hero-wind-wrapper">
           <div
             className="hero-wind-indicator"
             style={{ transform: `rotate(${wind}deg)` }}
           >
-            <NavigationRoundedIcon />
+            <NavigationRoundedIcon style={iconStyle} />
           </div>
         </div>
       </div>

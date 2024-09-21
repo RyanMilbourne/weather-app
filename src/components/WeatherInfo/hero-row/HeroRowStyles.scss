@@ -48,6 +48,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 
 .hero-wind-wrapper {
@@ -59,4 +60,31 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.compass-direction {
+  position: absolute;
+  color: $dark-blue;
+  font-size: 8px;
+  font-family: monospace;
+  font-weight: 700;
+  opacity: 0.75;
+}
+
+.north {
+  top: 10px;
+}
+
+.east {
+  right: 10px;
+  top: calc(50% - 5px);
+}
+
+.south {
+  bottom: 10px;
+}
+
+.west {
+  left: 10px;
+  top: calc(50% - 5px);
 }
