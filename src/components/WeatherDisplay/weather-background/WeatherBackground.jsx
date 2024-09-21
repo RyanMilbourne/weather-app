@@ -45,7 +45,7 @@ const WeatherBackground = () => {
         <SunMoon circleColor={circleColor} />
         <div className="graphic-1">
           {/* {(iconId === "01d" || iconId === "01n") && <Cloud1 />} */}
-          {(iconId === "02d" || iconId === "02n") && <Cloud1 />}
+          {/* {(iconId === "02d" || iconId === "02n") && <Cloud1 />} */}
           {(iconId === "03d" || iconId === "03n") && <Cloud1 />}
           {(iconId === "04d" || iconId === "04n") && <Cloud1 />}
           {(iconId === "09d" || iconId === "09n") && <Cloud1 />}

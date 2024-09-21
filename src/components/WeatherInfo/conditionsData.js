@@ -37,7 +37,7 @@ const conditionsData = {
   },
   "04d": {
     name: "broken clouds day",
-    sky: "#89a8cf",
+    sky: "#8ca3bf",
     circle: "#ffa500",
     image: "/sky-graphics/broken-clouds.webp",
   },
