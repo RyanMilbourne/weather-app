@@ -13,6 +13,7 @@ const HeaderDisplay = () => {
     height: "1.5rem",
     padding: 0,
     margin: 0,
+    cursor: "pointer",
   };
   return (
     <div className="weather-display-header">
