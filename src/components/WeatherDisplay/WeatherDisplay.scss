@@ -80,14 +80,8 @@
 .graphic-3 {
   box-sizing: border-box;
   position: absolute;
-  top: 13%;
+  top: 0;
   left: 0;
   width: 100%;
-  height: 24%;
-  max-height: 24%;
-  padding: 0 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  // background-color: rgba(255, 255, 0, 0.485);
+  height: 100%;
 }

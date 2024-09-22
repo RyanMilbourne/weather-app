@@ -4,6 +4,7 @@ import conditionsData from "../../WeatherInfo/conditionsData";
 import SunMoon from "../SunMoon/SunMoon";
 import Cloud2 from "./background-graphics/Cloud2";
 import Cloud1 from "./background-graphics/Cloud1";
+import Rain1 from "./background-graphics/Rain1";
 
 const WeatherBackground = () => {
   const [iconId, setIconId] = useState("01d");
@@ -65,7 +66,10 @@ const WeatherBackground = () => {
           {/* {(iconId === "13d" || iconId === "13n") && <Cloud2 />} */}
           {/* {(iconId === "50d" || iconId === "50n") && <Cloud2 />} */}
         </div>
-        <div className="graphic-3"></div>
+        <div className="graphic-3">
+          {(iconId === "09d" || iconId === "09n") && <Rain1 />}
+          {(iconId === "10d" || iconId === "10n") && <Rain1 />}
+        </div>
       </div>
     </div>
   );
