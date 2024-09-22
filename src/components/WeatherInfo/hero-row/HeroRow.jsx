@@ -55,7 +55,7 @@ const HeroRow = () => {
           </div>
           <div className="wind-info-row">
             <GpsFixedRoundedIcon style={iconStyle} />
-            {wind}°
+            {wind}°<span className="mini">deg</span>
           </div>
         </div>
       </div>
