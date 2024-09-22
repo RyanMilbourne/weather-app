@@ -61,7 +61,7 @@ const conditionsData = {
   },
   "10d": {
     name: "rain day",
-    sky: "#303a48",
+    sky: "#7c8085",
     circle: "#ffa500",
     image: "",
   },
