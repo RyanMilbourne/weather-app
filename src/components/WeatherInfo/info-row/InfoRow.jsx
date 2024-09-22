@@ -42,7 +42,7 @@ const InfoRow = () => {
         hero={<WbTwilightRoundedIcon />}
         secondary={convertToLocalTime(sunset)}
       />
-      <InfoRowItem hero={<OpacityRoundedIcon />} secondary={`${humidity}%`} />
+      <InfoRowItem hero={<OpacityRoundedIcon />} secondary={`${humidity}%rh`} />
     </div>
   );
 };
