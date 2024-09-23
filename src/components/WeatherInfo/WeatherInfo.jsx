@@ -9,7 +9,6 @@ const WeatherInfo = () => {
 
   const formattedCity = city.split(",").slice(0, 2).join(",").trim();
 
-  console.log("This is information: ", weatherData);
   return (
     <div className="info-container">
       {weatherData ? (
