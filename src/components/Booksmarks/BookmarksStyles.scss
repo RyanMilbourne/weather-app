@@ -1,0 +1,66 @@
+@import "@/assets/variables.scss";
+
+.bookmarks-container {
+  position: absolute;
+  top: 0;
+  left: -250px;
+  color: $dark-blue;
+  min-width: 230px;
+  padding: 2rem 1rem 1rem 1rem;
+  box-sizing: border-box;
+  animation: slideIn 0.5s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.bookmarks-title {
+  font-weight: 500;
+}
+
+.bookmarks-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.bookmark-item-container {
+  width: 100%;
+  padding: 16px;
+  background-color: $secondary;
+  box-shadow: $shadow-v8;
+  box-sizing: border-box;
+  border-radius: 20px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+
+.bookmark-item-container:hover {
+  transform: scale(1.1);
+  box-shadow: $shadow-v2;
+}
+
+.bookmark-item-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.add-bookmark {
+  margin-top: 1rem;
+  background-color: $dark-blue;
+  color: $main;
+}
+
+.add {
+  justify-content: center;
+}
+
+.bookmark-name {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 0;
+}

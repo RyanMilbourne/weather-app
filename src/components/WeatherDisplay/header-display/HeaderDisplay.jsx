@@ -6,7 +6,8 @@ import BookmarksRoundedIcon from "@mui/icons-material/BookmarksRounded";
 import WeatherInput from "../../WeatherInput/WeatherInput";
 
 const HeaderDisplay = () => {
-  const { city, search, handleSearchToggle } = useContext(WeatherContext);
+  const { city, search, handleSearchToggle, toggleBookmarks } =
+    useContext(WeatherContext);
 
   const iconStyle = {
     width: "1.5rem",
@@ -17,7 +18,7 @@ const HeaderDisplay = () => {
   };
   return (
     <div className="weather-display-header">
-      <div className="weather-display-preset-icon">
+      <div className="weather-display-preset-icon" onClick={toggleBookmarks}>
         <BookmarksRoundedIcon style={iconStyle} />
       </div>
       <div className="weather-display-location" onClick={handleSearchToggle}>

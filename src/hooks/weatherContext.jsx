@@ -14,8 +14,11 @@ export const WeatherProvider = ({ children }) => {
   const [coordinates, setCoordinates] = useState({ lat: null, lng: null });
   const [search, setSearch] = useState(false);
   const [weatherData, setWeatherData] = useState(null);
+  const [viewBookmarks, setViewBookmarks] = useState(false);
 
   const apiKey = import.meta.env.VITE_WEATHER_API_KEY;
+
+  console.log("This is city: ", city);
 
   useEffect(() => {
     const fetchWeather = async () => {
@@ -26,6 +29,7 @@ export const WeatherProvider = ({ children }) => {
         setWeatherData(response.data);
         handleSearchToggle(false);
         setInputCity(null);
+        setViewBookmarks(false);
       } catch (error) {
         console.error("Error fetching data", error);
       }
@@ -53,6 +57,14 @@ export const WeatherProvider = ({ children }) => {
     setInputCity(value);
   };
 
+  const toggleBookmarks = () => setViewBookmarks((prev) => !prev);
+
+  const handleBookmarkClick = (value) => {
+    setCity(value);
+    setInputCity(value);
+    handleSearchToggle(false);
+  };
+
   return (
     <WeatherContext.Provider
       value={{
@@ -66,6 +78,9 @@ export const WeatherProvider = ({ children }) => {
         search,
         handleSearchToggle,
         weatherData,
+        viewBookmarks,
+        toggleBookmarks,
+        handleBookmarkClick,
       }}
     >
       {children}
