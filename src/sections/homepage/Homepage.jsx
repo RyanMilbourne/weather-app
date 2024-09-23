@@ -6,7 +6,7 @@ const Homepage = () => {
   return (
     <>
       <Helmet>
-        <title>Weather App</title>
+        <title>Weather App - Prototype</title>
         <meta name="description" content="Weather App Practice Build" />
       </Helmet>
       <div className="homepage-container">
