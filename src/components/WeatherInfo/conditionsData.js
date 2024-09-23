@@ -97,7 +97,7 @@ const conditionsData = {
   },
   "50d": {
     name: "mist day",
-    sky: "#a7abaf",
+    sky: "#a4b2bf",
     circle: "#ffa500",
     image: "",
   },
