@@ -5,6 +5,8 @@ import { WeatherContext } from "../../../hooks/weatherContext";
 import WbTwilightRoundedIcon from "@mui/icons-material/WbTwilightRounded";
 import OpacityRoundedIcon from "@mui/icons-material/OpacityRounded";
 import useTimezoneOffset from "../../../hooks/useTimezoneOffset";
+import Sunset from "../../../../public/icons/Sunset";
+import Sunrise from "../../../../public/icons/sunrise";
 
 const InfoRow = () => {
   const { weatherData } = useContext(WeatherContext);
@@ -34,14 +36,8 @@ const InfoRow = () => {
     <div className="info-row-wrapper">
       <InfoRowItem hero={`${minTemp}°`} secondary="min" adjust={true} />
       <InfoRowItem hero={`${maxTemp}°`} secondary="max" adjust={true} />
-      <InfoRowItem
-        hero={<WbTwilightRoundedIcon />}
-        secondary={convertToLocalTime(sunrise)}
-      />
-      <InfoRowItem
-        hero={<WbTwilightRoundedIcon />}
-        secondary={convertToLocalTime(sunset)}
-      />
+      <InfoRowItem hero={<Sunrise />} secondary={convertToLocalTime(sunrise)} />
+      <InfoRowItem hero={<Sunset />} secondary={convertToLocalTime(sunset)} />
       <InfoRowItem hero={<OpacityRoundedIcon />} secondary={`${humidity}%rh`} />
     </div>
   );
