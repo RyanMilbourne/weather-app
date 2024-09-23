@@ -18,8 +18,6 @@ export const WeatherProvider = ({ children }) => {
 
   const apiKey = import.meta.env.VITE_WEATHER_API_KEY;
 
-  console.log("This is city: ", city);
-
   useEffect(() => {
     const fetchWeather = async () => {
       try {
